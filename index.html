@@ -19,8 +19,13 @@
       height: 110px;
     }
     .dashboard-graphs{
-      height: 300px;
+      height: 470px;
+        padding-bottom: 20px;
+        margin-bottom: auto;
+        
     }
+      
+      
     .top-nav{
       position: fixed;
     }
@@ -95,10 +100,11 @@
           <h1 class="md-toolbar-tools"></h1>
             <md-button class="info" ng-href="https://www.youtube.com/watch?v=75ecHkTE9mg" >Info</md-button>
             <md-button style="margin-right=200px;" class="info" ng-href="https://www.jcu.edu.au/orpheus-island" >Website</md-button>
+            
             <!--<md-button ng-click="dynamicTheme = 'default'">Default</md-button>-->
             <!--<md-button ng-click="dynamicTheme = 'altTheme'">altTheme</md-button>-->
       </md-toolbar>
-        </md-toolbar>
+        
       </div>
       <section layout="row" flex="" >
         <md-sidenav md-theme="{{'altTheme'}}"  style="margin-top:110px; position:fixed; width: 250px" class="md-sidenav-left nav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-disable-backdrop="" md-whiteframe="4" >
@@ -183,6 +189,8 @@
                 <div  flex="100" layout-gt-sm="row" layout-md="row" layout-sm="column" layout-xs="column" layout-align="stretch" >
 
                   <div  flex-gt-sm="60" flex="100" layout="column" >
+                      
+                      
 
                     <md-card  ng-controller="PlotlyCtrl">
                       <md-card-title >
@@ -225,6 +233,23 @@
                   </div>
 
                   <div  flex-gt-sm="40" flex="100" layout="column" >
+                      
+                      <md-card >
+                          <md-card-title>
+                            <md-card-title-text>
+                              <span class="md-headline">Orpheus Island</span>
+                              <span class="md-subhead">Visit Us</span>
+                            </md-card-title-text>
+                          </md-card-title>
+                          <div >
+                            <div class="" >
+                              <img src="assets/banner.jpg" style="padding-right: 20px; padding-top: 20px;" width="100%">
+                            </div>
+                          </div>
+                    </md-card>
+                      
+                      
+                      
                     <md-card >
                       <md-card-title>
                         <md-card-title-text>
@@ -233,15 +258,37 @@
                         </md-card-title-text>
                       </md-card-title>
                       <div >
-                        <div class="videoWrapper" >
-                          <iframe   src="https://www.youtube.com/embed/_09MMFJk590?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1&amp;loop=1" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                        <div class="" >
+                          <img   src="http://marfu-cam-fishtank.jcu.edu.au/mjpg/1/video.mjpg?camera=1" frameborder="0"  allowfullscreen width="100%">
                         </div>
                       </div>
                     </md-card>
+                      
+                    <md-card >
+                      <md-card-title>
+                        <md-card-title-text>
+                          <span class="md-headline">Orpheus Island</span>
+                          <span class="md-subhead">Camera Stream</span>
+                        </md-card-title-text>
+                      </md-card-title>
+                      <div >
+                        <div class="" >
+                          <img   src="http://marfu-cam-fishtank.jcu.edu.au/mjpg/1/video.mjpg?camera=2" frameborder="0"  allowfullscreen width="100%">
+                        </div>
+                      </div>
+                    </md-card>  
 
-                    <md-card>
-                        <div  class="map-container" id="map" style="height:830px; width:auto;"></div>
-
+                    <md-card  >
+                        <md-card-title>
+                        <md-card-title-text>
+                          <span class="md-headline">Orpheus Island</span>
+                            <span class="md-subhead">Location</span>
+                          
+                        </md-card-title-text>
+                      </md-card-title>
+                        <div  >
+                            <div  class="map-container" id="map" style="height:170px; "></div>
+                        </div>
                     </md-card>
                   </div>
 

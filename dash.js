@@ -214,9 +214,9 @@ angular.module('CotrApp',['ngMaterial', 'ngMessages' ])
                     pad: 0
                 }
       };
-      Plotly.newPlot("temperature", traces1,layout1);
-      Plotly.newPlot("transmission", traces2,layout2);
-      Plotly.newPlot("direction", traces3,layout3);
+      Plotly.newPlot("temperature", traces1,layout1, {displayModeBar: false});
+      Plotly.newPlot("transmission", traces2,layout2, {displayModeBar: false});
+      Plotly.newPlot("direction", traces3,layout3, {displayModeBar: false});
 
 
     }
