@@ -4,7 +4,7 @@ angular.module('CotrApp',['ngMaterial', 'ngMessages' ])
    .primaryPalette('grey',{
      'default': '900'})
    .accentPalette('grey',{
-     'default': '700'})
+     'default': '500'})
      // .backgroundPalette('grey',{'default': '900'})
    .dark()
    $mdThemingProvider.theme('default')
