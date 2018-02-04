@@ -244,3 +244,19 @@ angular.module('CotrApp',['ngMaterial', 'ngMessages' ])
   $scope.makeplot();
 
 })
+
+
+.directive('picSlider', function () {
+    return {
+        templateUrl: 'templates/slider.html',
+        controller: function ($timeout){
+
+            $timeout( function () {
+                $(document).ready(function () {
+                    $('.carousel.carousel-slider').carousel({fullWidth: true});
+                });
+            });
+
+        }
+    };
+});

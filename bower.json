@@ -1,0 +1,24 @@
+{
+  "name": "Cotr",
+  "homepage": "https://github.com/jcu-eresearch/Cotr",
+  "authors": [
+    "Saira Viqar <sairaviqar@gmail.com>"
+  ],
+  "description": "Classroom on the Reef",
+  "main": "dash.js",
+  "keywords": [
+    "dashboard"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "materialize": "^0.100.2"
+  }
+}

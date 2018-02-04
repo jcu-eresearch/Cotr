@@ -1,22 +1,31 @@
 <html lang="en" >
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--jquery-->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/slider.css" rel="stylesheet">
 
   <!-- google maps-->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMkKBSXRIrUrg-MaDfcUy_Yz7c63mbNho&libraries=visualization" async defer></script>
-
+    <!--materialize for the carousel not including the css its been added in dh.css-->
+    <script src="bower_components/materialize/dist/js/materialize.js"></script>
+    <!--materialize slider-->
+    <link rel="stylesheet" href="bower_components/materialize/extras/noUiSlider/nouislider.css" />
+    <script src="bower_components/materialize/extras/noUiSlider/nouislider.js"></script>
 
   <style>
     .logo{
       height: 90px;
       padding-top: 10px;
-      padding-left: 50px;
+      padding-left: 200px;
     }
     .nav{
-      height: 140px;
+      height: 110px;
     }
     .dashboard-graphs{
       height: 400px;
@@ -30,7 +39,7 @@
       position: fixed;
     }
     .content{
-      top: 140px;
+      top: 110px;
       position: absolute;
       width: 100%;
       right: 0;
@@ -71,6 +80,10 @@
 
       }
 
+    md-card {
+        
+    }
+
 
       @media screen and (max-width: 1280px) {
           .dash-container  {
@@ -100,7 +113,7 @@
           <h1 class="md-toolbar-tools"></h1>
             <md-button hide show-gt-lg class="info" ng-href="https://www.youtube.com/watch?v=75ecHkTE9mg" >Info</md-button>
             <md-button hide show-gt-lg style="margin-right=200px;" class="info" ng-href="https://www.jcu.edu.au/orpheus-island" >Website</md-button>
-            <img src="assets/banner.jpg" style="padding-right: 20px; padding-top: 20px;" height="85% " width="auto" hide show-gt-sm>
+            <!--<img src="assets/banner.jpg" style="padding-right: 20px; padding-top: 20px;" height="85% " width="auto" hide show-gt-sm>-->
             
             <!--<md-button ng-click="dynamicTheme = 'default'">Default</md-button>-->
             <!--<md-button ng-click="dynamicTheme = 'altTheme'">altTheme</md-button>-->
@@ -108,7 +121,7 @@
         
       </div>
       <section layout="row" flex="" >
-        <md-sidenav md-theme="{{'altTheme'}}"  style="margin-top:140px; position:fixed; width: 250px" class="md-sidenav-left nav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-disable-backdrop="" md-whiteframe="4" >
+        <md-sidenav md-theme="{{'altTheme'}}"  style="margin-top:110px; position:fixed; width: 250px" class="md-sidenav-left nav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-disable-backdrop="" md-whiteframe="4" >
           <md-content role="navigation">
             <md-list flex>
               <md-list-item ng-click="showAlert()">
@@ -123,9 +136,16 @@
           </md-content>
         </md-sidenav>
 
-        <md-content flex="" layout-padding="20" class="content" >
+        <md-content flex="" layout-padding="0" class="content" >
             <div layout="row" layout-fill="" layout-align="center center"  class="dash-container">
+
               <div  flex="100" layout="column" >
+
+                  <div  flex="100"  >
+                      <div pic-slider ></div>
+                  </div>
+
+
                 <div  layout-gt-sm="row" layout-md="row" layout-sm="column" layout-xs="column" layout-align="stretch" >
                   <div flex-gt-sm="25" flex-sm="100" flex-xs="100" >
                     <md-card >
@@ -190,8 +210,8 @@
                 <div  flex="100" layout-gt-sm="row" layout-md="row" layout-sm="column" layout-xs="column" layout-align="stretch" >
 
                   <div  flex-gt-sm="60" flex="100" layout="column" >
-                      
-                      
+
+
 
                     <md-card  ng-controller="PlotlyCtrl">
                       <md-card-title >
@@ -234,7 +254,7 @@
                   </div>
 
                   <div  flex-gt-sm="40" flex="100" layout="column" >
-                      
+
                      <!-- <md-card >
                           <md-card-title>
                             <md-card-title-text>
@@ -248,9 +268,9 @@
                             </div>
                           </div>
                     </md-card>-->
-                      
-                      
-                      
+
+
+
                     <md-card >
                       <md-card-title>
                         <md-card-title-text>
@@ -264,7 +284,7 @@
                         </div>
                       </div>
                     </md-card>
-                      
+
                     <md-card >
                       <md-card-title>
                         <md-card-title-text>
@@ -277,14 +297,14 @@
                           <img   src="http://marfu-cam-fishtank.jcu.edu.au/mjpg/1/video.mjpg?camera=2" frameborder="0"  allowfullscreen width="100%">
                         </div>
                       </div>
-                    </md-card>  
+                    </md-card>
 
                     <md-card  >
                         <md-card-title>
                         <md-card-title-text>
                           <span class="md-headline">Orpheus Island</span>
                             <span class="md-subhead">Location</span>
-                          
+
                         </md-card-title-text>
                       </md-card-title>
                         <div  >
