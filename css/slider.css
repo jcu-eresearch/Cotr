@@ -39,6 +39,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    text-align: center;
 }
 
 .carousel.carousel-slider .carousel-item h2 {
@@ -47,15 +48,23 @@
     font-size: 24px;
     font-weight: 500;
     line-height: 32px;
+    text-align: center;
+}
+
+.carousel.carousel-slider .carousel-item h3 {
+
+    font-family: "Roboto" , sans-serif;
+    text-align: center;
 }
 
 .carousel.carousel-slider .carousel-item p {
     color: white;
     font-size: 15px;
-    font-family: "Futura" , sans-serif;
+    font-family: "Roboto" , sans-serif;
     word-wrap: normal;
     margin-bottom: 0px;
     margin-top: 0px;
+    text-align: center;
 }
 
 .carousel.carousel-slider .carousel-item li {
@@ -122,11 +131,13 @@
 .carousel-caption {
 
     position: absolute;
-    top: 210px;
-    left: 0;
-    width: 65%;
+    top: 200px;
+
+    width: 100%;
+    align-self: center;
+    align-content: center;
     font-size: 30px;
-    padding: 100px;
+    text-align: center;
 }
 
 

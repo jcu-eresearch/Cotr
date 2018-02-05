@@ -19,6 +19,7 @@
     "tests"
   ],
   "dependencies": {
-    "materialize": "^0.100.2"
+    "materialize": "^0.100.2",
+    "jquery-ui": "^1.12.1"
   }
 }
