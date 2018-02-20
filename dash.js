@@ -39,7 +39,7 @@ angular.module('CotrApp',['ngMaterial', 'ngMessages' ])
       map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -18.617, lng: 146.500},
           mapTypeId: 'hybrid',
-          zoom:14,
+          zoom:12,
           scrollwheel:  false
       });
 
@@ -57,6 +57,30 @@ angular.module('CotrApp',['ngMaterial', 'ngMessages' ])
       });
 
       var markers=[marker1];
+
+
+
+      function definePopup(id, source1, source2) {
+          var popupText = '<video id="my-video" class="video-js" controls preload="auto" width="640" height="264"\n' +
+              '           data-setup="{}">\n' +
+              '<source src="'+source1+'" type=\'video/mp4\'>\n' +
+              '\n' +
+              '<p class="vjs-no-js">\n' +
+              'To view this video please enable JavaScript, and consider upgrading to a web browser that\n' +
+              '<a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>\n' +
+              '</p>\n' +
+              '</video>';
+          return popupText;
+      }
+
+      var infowindow = new google.maps.InfoWindow({
+          content: definePopup('http://marfu-cam-fishtank.jcu.edu.au/mjpg/1/video.mjpg?camera=1')
+      });
+
+      marker1.addListener('click', function() {
+          infowindow.open(map, marker1);
+      });
+
 
 
   };
