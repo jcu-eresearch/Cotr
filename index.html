@@ -1,344 +1,50 @@
-<html lang="en" >
+<!DOCTYPE HTML>
+<html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--jquery-->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
-  <!-- Angular Material style sheet -->
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/slider.css" rel="stylesheet">
-
-  <!-- google maps-->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMkKBSXRIrUrg-MaDfcUy_Yz7c63mbNho&libraries=visualization" async defer></script>
-    <!--materialize for the carousel not including the css its been added in dh.css-->
-    <script src="bower_components/materialize/dist/js/materialize.js"></script>
-    <!--materialize slider-->
-    <link rel="stylesheet" href="bower_components/materialize/extras/noUiSlider/nouislider.css" />
-    <script src="bower_components/materialize/extras/noUiSlider/nouislider.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.7.1/alt/video-js-cdn.css" rel="stylesheet">
-
-  <style>
-    .logo{
-      height: 90px;
-      padding-top: 10px;
-      padding-left: 40px;
-    }
-    .nav{
-      height: 110px;
-    }
-    .dashboard-graphs{
-      height: 300px;
-        padding-bottom: 20px;
-        margin-bottom: auto;
-        
-    }
-      
-      
-    .top-nav{
-      position: fixed;
-    }
-    .content{
-      /*top: 110px;*/
-      top: 0;
-      position: absolute;
-      width: 100%;
-      right: 0;
-    }
-
-      .videoWrapper {
-      	position: relative;
-      	padding-bottom: 56.25%; /* 16:9 */
-      	//padding-top: 25px;
-      	height: 0;
-      }
-      .videoWrapper iframe {
-      	position: absolute;
-      	top: 0;
-      	left: 0;
-      	width: 100%;
-      	height: 100%;
-      }
-      .info{
-        margin-top: 40px;
-        margin-bottom: 40px;
-      }
-      .page-title h1 {
-        font-size: 22px;
-        font-weight: 500;
-        display: block;
-
-      }
-
-      .page-title a {
-          color: #337AB7;
-      }
-
-
-      .page-title {
-        margin-bottom: 20px;
-        margin-left: 10px;
-
-      }
-
-    md-card {
-
-    }
-
-
-      /*@media screen and (max-width: 1280px) {
-          .dash-container  {
-              padding-left:0px !important;
-          }
-      }
-      @media screen and (min-width: 1281px) {
-          .dash-container  {
-              padding-left:250px !important;
-          }
-      }*/
-
-      md-dialog{
-        background-color: white;
-      }
-
-
-  </style>
-
+  <title>Classroom on the Reed</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <link href="css/jcu.min.css" rel="stylesheet">
+  <link href="css/dash.css" rel="stylesheet">
+  <script src="js/plotly-latest.min.js"></script>
 </head>
-<body ng-app="CotrApp" ng-cloak>
-  <div ng-controller="AppCtrl" layout="column" style="height: 100%;" ng-cloak="" class="sidenavdemoBasicUsage"  md-theme="{{ dynamicTheme }}" md-theme-watch>
-    <div layout="column" flex="">
-     <!-- <div>
-        <md-toolbar md-whiteframe="8" layout="row" class="nav top-nav"  md-theme="{{'altTheme'}}">
-          <img src="assets/jcu-CoTR-logo-rev.svg" alt="James Cook University" class="logo" >
-          <h1 class="md-toolbar-tools"></h1>
-            <div layout="row" md-padding>
-            <md-button hide show-gt-sm class="info" ng-href="https://www.youtube.com/watch?v=75ecHkTE9mg" >More Info</md-button>
-            <md-button hide show-gt-sm style="margin-right=200px;" class="info" ng-href="https://www.jcu.edu.au/orpheus-island" >About Orpheus Island</md-button>
+
+<body>
+
+    <div class="card ">
+        <div class="card-body">
+            <div  class="map-container" id="map" ></div>
+        </div>
+    </div>
+
+    <div class="card ">
+        <div class="card-body">
+            <div class="videoWrapper" >
+                <iframe   src="https://www.youtube.com/embed/_09MMFJk590?rel=0&amp;showinfo=0&amp;autoplay=1&amp;loop=1" frameborder="0"  ></iframe>
             </div>
-            &lt;!&ndash;<img src="assets/banner.jpg" style="padding-right: 20px; padding-top: 20px;" height="85% " width="auto" hide show-gt-sm>&ndash;&gt;
-            
-            &lt;!&ndash;<md-button ng-click="dynamicTheme = 'default'">Default</md-button>&ndash;&gt;
-            &lt;!&ndash;<md-button ng-click="dynamicTheme = 'altTheme'">altTheme</md-button>&ndash;&gt;
-      </md-toolbar>
-        
-      </div>-->
-      <section layout="column" flex="" >
-       <!-- <md-sidenav md-theme="{{'altTheme'}}" style="background-color: #404651;  margin-top:110px; position:fixed; width: 250px" class="md-sidenav-left nav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-disable-backdrop="" md-whiteframe="4" >
-          <md-content role="navigation" style="background-color: #404651">
-            <md-list flex>
-              <md-list-item ng-click="showAlert()">
-                <md-icon class="material-icons"  >home</md-icon>
-                <p class="md-body-2" >Dashboard</p>
-              </md-list-item>
-              <md-list-item ng-click="showAlert()">
-                <md-icon class="material-icons" >info</md-icon>
-                <p class="md-body-2" >About</p>
-              </md-list-item>
-            </md-list>
-          </md-content>
-        </md-sidenav>
--->
-        <md-content flex="" layout-padding="0" class="content" >
-            <div layout="column" layout-fill="" layout-align="stretch"  class="dash-container">
-              <div  flex="100" layout="column" >
-                  <md-card  >
+        </div>
+    </div>
 
-                      <div  >
-                          <div  class="map-container" id="map" style="height:500px; "></div>
-                      </div>
-                  </md-card>
+    <div class="card ">
+        <div class="card-body">
+            <div id="transmission" class="dashboard-graphs"></div>
+        </div>
+    </div>
 
-              </div>
+    <div class="card ">
+        <div class="card-body">
+            <div id="temperature" class="dashboard-graphs"></div>
+        </div>
+    </div>
+    <div class="card ">
+        <div class="card-body">
+            <div id="direction" class="dashboard-graphs"></div>
+        </div>
+    </div>
 
-              <div  flex="100" layout="column" >
-
-                 <!-- <div  flex="100"  >
-                      <div pic-slider ></div>
-                  </div>-->
-
-
-
-
-                <!--<div   layout="column" layout-align="stretch" >
-                  <div   flex="100" >
-                    <md-card >
-                        <md-card-title>
-                            <md-card-title-text>
-                                <span class="md-headline" ng-style="{color: '#23AE89'}">33.6&#8451 </span>
-                                <span class="md-subhead">Max Temperature</span>
-                            </md-card-title-text>
-                            <md-icon class="material-icons" style="font-size: 52px; margin-right: 20px; " ng-style="{color: '#95D7BB'}" >trending_up</md-icon>
-
-                        </md-card-title>
-                        <md-card-actions layout="row" layout-align="end center">
-                            <md-button></md-button>
-                        </md-card-actions>
-                    </md-card>
-                  </div>
-                  <div  flex="100" >
-                      <md-card >
-                          <md-card-title>
-                              <md-card-title-text>
-                                  <span class="md-headline" ng-style="{color: '#afb530'}">28.2&#8451</span>
-                                  <span class="md-subhead">Min Temperature </span>
-                              </md-card-title-text>
-                              <md-icon class="material-icons" style="font-size: 52px; margin-right: 20px " ng-style="{color: '#D9DD81'}" >trending_down</md-icon>
-                          </md-card-title>
-                          <md-card-actions layout="row" layout-align="end center">
-                              <md-button ng-click="showTagsLost()"></md-button>
-                          </md-card-actions>
-                      </md-card>
-                  </div>
-                  <div  flex="100">
-                    <md-card >
-                        <md-card-title>
-                            <md-card-title-text>
-                                <span class="md-headline" ng-style="{color: '#45bfbd'}">35.7K</span>
-                                <span class="md-subhead">Max Transmission </span>
-                            </md-card-title-text>
-                            <md-icon class="material-icons" style="font-size: 52px; margin-right: 20px " ng-style="{color: '#79D1CF'}" >equalizer</md-icon>
-                        </md-card-title>
-                        <md-card-actions layout="row" layout-align="end center">
-                            <md-button ng-click="showMeasurements()"></md-button>
-                        </md-card-actions>
-                    </md-card>
-                  </div>
-                  <div  flex="100">
-                  <md-card >
-                      <md-card-title>
-                          <md-card-title-text>
-                              <span class="md-headline" ng-style="{color: '#df5753'}">00:30 Hrs</span>
-                              <span class="md-subhead">Last Heartbeat </span>
-                          </md-card-title-text>
-                          <md-icon class="material-icons" style="font-size: 52px; margin-right: 20px " ng-style="{color: '#E67A77'}" >schedule</md-icon>
-
-                      </md-card-title>
-                      <md-card-actions layout="row" layout-align="end center">
-                          <md-button  ng-click="showLatestReading()"></md-button>
-                      </md-card-actions>
-                  </md-card>
-              </div>
-                </div>-->
-
-                <div  flex="100"  layout="column" layout-align="stretch" >
-
-                  <div   flex="100" layout="column" >
-
-                      <md-card >
-                          <md-card-title >
-                              <md-card-title-text >
-
-                                  <span class="md-subhead" >Sensor Platform Video Feed</span>
-                              </md-card-title-text>
-
-                          </md-card-title>
-
-                          <div >
-                              <div class="" >
-                                  <img   src="http://marfu-cam-fishtank.jcu.edu.au/mjpg/1/video.mjpg?camera=1" frameborder="0"  allowfullscreen width="100%">
-                              </div>
-                          </div>
-                      </md-card>
-
-                    <md-card  ng-controller="PlotlyCtrl">
-                      <md-card-title >
-                        <md-card-title-text >
-
-                          <span class="md-subhead" >Transmission</span>
-                        </md-card-title-text>
-
-                      </md-card-title>
-                      <div class="graph-container" style="width:100%">
-                            <div id="transmission" class="dashboard-graphs"></div>
-                      </div>
-                    </md-card>
-
-                    <md-card  ng-controller="PlotlyCtrl">
-                      <md-card-title>
-                        <md-card-title-text>
-
-                          <span class="md-subhead">Temperature</span>
-                        </md-card-title-text>
-
-                      </md-card-title>
-                      <div class="graph-container" style="width:100%">
-                            <div id="temperature" class="dashboard-graphs"></div>
-                      </div>
-                    </md-card>
-
-                    <md-card  ng-controller="PlotlyCtrl">
-                      <md-card-title>
-                        <md-card-title-text>
-
-                          <span class="md-subhead">Current Direction</span>
-                        </md-card-title-text>
-
-                      </md-card-title>
-                      <div class="graph-container" style="width:100%">
-                            <div id="direction" class="dashboard-graphs"></div>
-                      </div>
-                    </md-card>
-                  </div>
-
-                  <div   flex="100" layout="column" >
-
-                     <!-- <md-card >
-                          <md-card-title>
-                            <md-card-title-text>
-                              <span class="md-headline">Orpheus Island</span>
-                              <span class="md-subhead">Visit Us</span>
-                            </md-card-title-text>
-                          </md-card-title>
-                          <div >
-                            <div class="" >
-                              <img src="assets/banner.jpg" style="padding-right: 20px; padding-top: 20px;" width="100%">
-                            </div>
-                          </div>
-                    </md-card>-->
-
-
-
-
-
-                    <!--<md-card >
-
-                      <div >
-                        <div class="" >
-                          <img   src="http://marfu-cam-fishtank.jcu.edu.au/mjpg/1/video.mjpg?camera=2" frameborder="0"  allowfullscreen width="100%">
-                        </div>
-                      </div>
-                    </md-card>-->
-
-
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-
-
-          </md-content>
-        </section>
-  </div>
-</div>
-  <!-- Angular Material requires Angular.js Libraries -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-  <!-- Angular Material Library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.4/moment.min.js"></script>
-
-  <!-- Your application bootstrap  -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.7.1/video.min.js"></script>
   <script src="dash.js" type="text/javascript"> </script>
-
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMkKBSXRIrUrg-MaDfcUy_Yz7c63mbNho&libraries=visualization&callback=initMap" async defer></script>
 
 </body>
 </html>
