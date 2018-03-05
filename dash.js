@@ -19,7 +19,7 @@ var createMarker= function(text, content, position, map, markerArray){
         title: text,
         icon: {
             labelOrigin: new google.maps.Point(11, 50),
-            url: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+            url: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png',
             size: new google.maps.Size(25, 40),
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(11, 40),
